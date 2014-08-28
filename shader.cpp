@@ -3,9 +3,9 @@
 Shader::Shader(const char* vertexShader, const char* fragmentShader)
 {
     program = glCreateProgram();
-    loadShader(vertexShader, GL_VERTEX_SHADER);
-    loadShader(fragmentShader, GL_FRAGMENT_SHADER);
-    compileShader();
+    GLuint vertex = loadShader(vertexShader, GL_VERTEX_SHADER);
+    GLuint fragment = loadShader(fragmentShader, GL_FRAGMENT_SHADER);
+    linkShader(vertex, fragment);
 }
 
 
@@ -19,8 +19,12 @@ GLuint Shader::loadShader(const char* path, GLuint shaderType)
 
     shaderFile >> sSrc;
 
+    shaderFile.close();
+
     const GLchar* src[] = {sSrc.c_str()};
     const GLint length[] = {sSrc.size()};
+
+
 
     GLuint shader = glCreateShader(shaderType);
 
@@ -47,11 +51,28 @@ GLuint Shader::loadShader(const char* path, GLuint shaderType)
     return shader;
 }
 
-void Shader::compileShader(GLuint vertex, GLuint fragment)
+void Shader::linkShader(GLuint vertex, GLuint fragment)
 {
     glUseProgram(program);
-    glLinkShader(vertex);
-    glLinkShader(fragment);
+    glAttachShader(program, vertex);
+    glAttachShader(program, fragment);
 
+    glLinkProgram(program);
 
+    GLint success;
+
+    glGetProgramiv(program, GL_LINK_STATUS, &success);
+
+    if(!success)
+    {
+        char error[1024];
+
+        glGetProgramInfoLog(program, 1024, NULL, error);
+
+        SDL_ShowSimpleMessageBox(NULL, "Shader Link Error", error, NULL);
+        SDL_assert(!error);
+    }
+
+    glDeleteShader(vertex);
+    glDeleteShader(fragment);
 }

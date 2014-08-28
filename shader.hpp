@@ -16,7 +16,7 @@ public:
 private:
     GLuint program;
     inline GLuint loadShader(const char* path, GLuint shaderType);
-    inline GLuint compileShader(GLuint vertex, GLuint fragment);
+    inline void linkShader(GLuint vertex, GLuint fragment);
 
 };
 
