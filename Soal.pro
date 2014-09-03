@@ -4,7 +4,8 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += main.cpp \
-    shader.cpp
+    shader.cpp \
+    ../vertexobject.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -23,4 +24,5 @@ DEPENDPATH += $$PWD/../../../../../../../usr/include
 INCLUDEPATH += /usr/include/glm
 
 HEADERS += \
-    shader.hpp
+    shader.hpp \
+    ../vertexobject.h

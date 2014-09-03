@@ -1,3 +1,5 @@
+/** @file main.cpp
+ *  @brief Where the magic happens */
 #include <GL/glew.h>
 #include <SDL2/SDL.h>
 #include <glm.hpp>
@@ -79,7 +81,7 @@ int main()
         glClearColor(.1f, 0.4f, 6.f, 1.f);
 
 
-        //the... loop
+        //the... loop?
         while(running)
         {
 

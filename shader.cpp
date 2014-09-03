@@ -1,3 +1,5 @@
+/** @file shader.cpp
+    @brief Shader Source File */
 #include "shader.hpp"
 
 Shader::Shader(const char* vertexShader, const char* fragmentShader)
@@ -13,13 +15,23 @@ Shader::~Shader() {}
 
 GLuint Shader::loadShader(const char* path, GLuint shaderType)
 {
-    std::fstream shaderFile(path);
-
     std::string sSrc;
 
-    shaderFile >> sSrc;
+    try
+    {
+        return -1;
+        std::fstream shaderFile(path);
 
-    shaderFile.close();
+        shaderFile >> sSrc;
+
+        shaderFile.close();
+    }
+    catch(char* e)
+    {
+        SDL_ShowSimpleMessageBox(NULL, "Shader Load Error", path, NULL);
+        SDL_assert(false);
+        return -1;
+    }
 
     const GLchar* src[] = {sSrc.c_str()};
     const GLint length[] = {sSrc.size()};
@@ -75,4 +87,10 @@ void Shader::linkShader(GLuint vertex, GLuint fragment)
 
     glDeleteShader(vertex);
     glDeleteShader(fragment);
+    glUseProgram(0);
+}
+
+void Shader::use()
+{
+    glUseProgram(program);
 }
