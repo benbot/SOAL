@@ -5,7 +5,7 @@ CONFIG -= qt
 
 SOURCES += main.cpp \
     shader.cpp \
-    ../vertexobject.cpp
+    vertexArrayObject.cpp
 
 include(deployment.pri)
 qtcAddDeployment()
@@ -25,4 +25,4 @@ INCLUDEPATH += /usr/include/glm
 
 HEADERS += \
     shader.hpp \
-    ../vertexobject.h
+    vertexArrayObject.hpp

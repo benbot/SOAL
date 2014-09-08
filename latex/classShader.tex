@@ -1,0 +1,50 @@
+\hypertarget{classShader}{\section{Shader Class Reference}
+\label{classShader}\index{Shader@{Shader}}
+}
+
+
+The \hyperlink{classShader}{Shader} class handles using and creating Open\+G\+L shader porograms.  
+
+
+
+
+{\ttfamily \#include $<$shader.\+hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hypertarget{classShader_abda64528f1b4f9a251213185e426172e}{{\bfseries Shader} (const char $\ast$vertex\+Shader, const char $\ast$fragment\+Shader)}\label{classShader_abda64528f1b4f9a251213185e426172e}
+
+\item 
+G\+Luint \hyperlink{classShader_ab3b6ebf2670424320d518f417a676fc2}{get\+Program} ()
+\item 
+void \hyperlink{classShader_a870fa9f13d69e558815d6fd351a469dc}{use} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The \hyperlink{classShader}{Shader} class handles using and creating Open\+G\+L shader porograms. 
+
+This class is simply a wrapper for some gl$\ast$ shader functions. it also Allows for easy organization of shaders. 
+
+\subsection{Member Function Documentation}
+\hypertarget{classShader_ab3b6ebf2670424320d518f417a676fc2}{\index{Shader@{Shader}!get\+Program@{get\+Program}}
+\index{get\+Program@{get\+Program}!Shader@{Shader}}
+\subsubsection[{get\+Program}]{\setlength{\rightskip}{0pt plus 5cm}G\+Luint Shader\+::get\+Program (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShader_ab3b6ebf2670424320d518f417a676fc2}
+Returns the G\+Luint I\+D of the shader program \hypertarget{classShader_a870fa9f13d69e558815d6fd351a469dc}{\index{Shader@{Shader}!use@{use}}
+\index{use@{use}!Shader@{Shader}}
+\subsubsection[{use}]{\setlength{\rightskip}{0pt plus 5cm}void Shader\+::use (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classShader_a870fa9f13d69e558815d6fd351a469dc}
+Wrapper for the gl\+Use\+Program function 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{shader_8hpp}{shader.\+hpp}\item 
+\hyperlink{shader_8cpp}{shader.\+cpp}\end{DoxyCompactItemize}

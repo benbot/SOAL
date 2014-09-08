@@ -19,6 +19,11 @@ class Shader
 {
 public:
 
+    /**
+     * @brief Shader constructor
+     * @param vertexShader
+     * @param fragmentShader
+     */
     Shader(const char* vertexShader, const char* fragmentShader);
     ~Shader();
 
@@ -27,6 +32,9 @@ public:
 
     /** Wrapper for the glUseProgram function */
     void use();
+
+    /** calls glUseProgram(0) */
+    static void clear();
 
 private:
     GLuint program;
